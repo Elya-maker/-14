@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Трюфель | Гастрономия</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#e3beb8",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#827472",
+                        "on-secondary-fixed-variant": "#743419",
+                        "deep-truffle": "#3E2723",
+                        "surface-dim": "#e0d8d7",
+                        "on-surface-variant": "#504442",
+                        "surface": "#fff8f6",
+                        "on-tertiary-fixed": "#221a0f",
+                        "background": "#fff8f6",
+                        "surface-container-highest": "#e8e1df",
+                        "primary-fixed": "#ffdad4",
+                        "on-primary-container": "#ae8d87",
+                        "tertiary-fixed": "#efe0cd",
+                        "on-primary-fixed-variant": "#5b403c",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#d3c3c0",
+                        "on-error": "#ffffff",
+                        "rust-accent": "#BC6C4D",
+                        "on-tertiary-fixed-variant": "#4f4538",
+                        "surface-container-high": "#eee6e5",
+                        "on-primary-fixed": "#2b1613",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#342c1f",
+                        "primary-container": "#3e2723",
+                        "primary": "#271310",
+                        "paper-white": "#F9F4EE",
+                        "surface-tint": "#745853",
+                        "on-surface": "#1e1b1a",
+                        "on-secondary-fixed": "#380d00",
+                        "inverse-on-surface": "#f7efee",
+                        "on-tertiary-container": "#9f9382",
+                        "inverse-primary": "#e3beb8",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#faf2f0",
+                        "surface-container": "#f4eceb",
+                        "error": "#ba1a1a",
+                        "secondary": "#924a2e",
+                        "cream-bg": "#F5E6D3",
+                        "secondary-fixed-dim": "#ffb59a",
+                        "inverse-surface": "#33302f",
+                        "on-background": "#1e1b1a",
+                        "secondary-container": "#fea27f",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#77361b",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-variant": "#e8e1df",
+                        "tertiary": "#1e180c",
+                        "tertiary-fixed-dim": "#d2c4b2",
+                        "muted-border": "#DBC7B1",
+                        "surface-bright": "#fff8f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "64px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "margin-mobile": "16px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Playfair Display"],
+                        "label-price": ["Plus Jakarta Sans"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-sm": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-price": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .globe-watermark {
+            mask-image: radial-gradient(circle at center, black, transparent);
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100dvh;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .view-section {
+            display: none;
+        }
+        .view-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-rust-accent/30 overflow-x-hidden">
+<!-- Sticky Header -->
+<header class="top-0 sticky z-50 bg-surface/95 border-b border-muted-border/30 backdrop-blur-md">
+<nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md tracking-tight text-deep-truffle">Трюфель</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-deep-truffle p-2">calendar_today</button>
+</div>
+</nav>
+<!-- Category Scroll (Only visible on Menu view) -->
+<div class="hidden flex overflow-x-auto no-scrollbar px-4 pb-3 gap-6" id="menu-categories">
+<a class="text-rust-accent font-bold border-b-2 border-rust-accent pb-1 whitespace-nowrap font-label-lg text-label-lg" href="#breakfasts">Menu</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap font-label-lg text-label-lg" href="#eggs">Eggs</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap font-label-lg text-label-lg" href="#salads">Salads</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap font-label-lg text-label-lg" href="#main">Main</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap font-label-lg text-label-lg" href="#beverages">Beverages</a>
+</div>
+</header>
+<main class="relative pb-24" id="main-content">
+<!-- Abstract Globe Motif Background (Global) -->
+<div class="fixed top-0 right-0 w-80 h-80 globe-watermark -z-10 translate-x-1/4 -translate-y-1/4">
+<svg class="text-rust-accent w-full h-full" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="48" stroke="currentColor" stroke-width="0.5"></circle>
+<path d="M50 2L50 98" stroke="currentColor" stroke-width="0.5"></path>
+<path d="M2 50L98 50" stroke="currentColor" stroke-width="0.5"></path>
+<ellipse cx="50" cy="50" rx="30" ry="48" stroke="currentColor" stroke-width="0.5"></ellipse>
+<ellipse cx="50" cy="50" rx="48" ry="30" stroke="currentColor" stroke-width="0.5"></ellipse>
+</svg>
+</div>
+<!-- HOME VIEW (SCREEN_13) -->
+<section class="view-section active" id="view-home">
+<!-- Hero -->
+<div class="px-gutter pt-8 pb-12">
+<div class="relative rounded-xl overflow-hidden aspect-[4/5] shadow-lg group">
+<div class="absolute inset-0 bg-gradient-to-t from-deep-truffle/80 via-transparent to-transparent z-10"></div>
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVg5HPwglY8argRosJ5WaBYPIo2QM5g4u1DSiVRwuPnPjFyCgGcDqDqEifKugp4Ghv1qVDY6Tc7v-8y1RO9usacH2XM6V2Q8lTl4BbTcFpKUDPYRmo5VyhLk5M0RgwNWIugaFyFZg3FzLpl3yCb_SioG8Vccr9yC2lqFCbQOk3b6kgpfU1kUbc-UEFmVobM15jElpQk-NTXoZgxiQSqzc41rn1sL8R8zYItUu55Mc_WSqMS0u_-9cOK-EiIMiz-GsA0ESUUA7Qu5Ao"/>
+<div class="absolute bottom-0 left-0 right-0 p-gutter z-20">
+<h1 class="font-headline-xl text-headline-xl text-white mb-6 leading-tight">Morning starts with the aroma of Truffle</h1>
+<div class="flex flex-col gap-3">
+<button class="bg-rust-accent text-white py-4 rounded-lg font-label-lg text-label-lg active:scale-95 transition-transform" onclick="switchView('contacts')">Book Table</button>
+<button class="bg-white/10 backdrop-blur-md text-white border border-white/30 py-4 rounded-lg font-label-lg text-label-lg active:scale-95 transition-transform" onclick="switchView('menu')">Menu</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Features Bento -->
+<div class="px-gutter pb-section-gap">
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2 bg-paper-white p-6 rounded-xl border border-muted-border/20 shadow-sm">
+<span class="material-symbols-outlined text-rust-accent mb-4 text-3xl">restaurant</span>
+<h3 class="font-headline-sm text-headline-sm text-deep-truffle mb-2">All-day breakfast</h3>
+<p class="text-on-surface-variant font-body-sm">From fluffy omelettes to artisanal croissants, served until closing.</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl border border-muted-border/20 flex flex-col justify-between">
+<span class="material-symbols-outlined text-rust-accent text-2xl">cake</span>
+<h3 class="font-headline-sm text-headline-sm text-deep-truffle mt-4 leading-tight">Homemade desserts</h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-muted-border/20 flex flex-col justify-between">
+<span class="material-symbols-outlined text-rust-accent text-2xl">eco</span>
+<h3 class="font-headline-sm text-headline-sm text-deep-truffle mt-4 leading-tight">Cozy atmosphere</h3>
+</div>
+</div>
+</div>
+<!-- Seasonal Offers -->
+<div class="pb-section-gap">
+<div class="px-gutter flex justify-between items-end mb-6">
+<div>
+<span class="text-rust-accent font-label-lg uppercase tracking-widest block mb-2">Exclusive</span>
+<h2 class="font-headline-lg text-headline-lg text-deep-truffle">Seasonal offers</h2>
+</div>
+<button class="text-rust-accent font-label-lg flex items-center gap-1" onclick="switchView('menu')">
+                        See all <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="flex overflow-x-auto snap-x-mandatory hide-scrollbar gap-4 px-gutter pb-4">
+<div class="min-w-[280px] snap-start bg-white rounded-xl shadow-sm border border-muted-border/10 overflow-hidden">
+<div class="aspect-square relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ4Dus8-oLi0rL7cnzB6NVa1_ihL-BRlK72hRO0lBMdXnTu8LxMlLoDKLV3iqqHpPaJPUr0Z3U0mWr7BMrlUAAMYy7SwT4k9iIsoMU2ASH2S2Bhh_a81mZlwXL5J1x1VmwhTZKH2nvJZzgAUxb2Y7HuQMeTxeKt6692sBI1iR4b-jpR8WZxUxl7mg6vJb76oYJxJK-eqb4HvwTh-bqS8jE5VbF7ikKvr0eulXnW6NWkzliPvMVWhEocv1K3PrvwutY--92u9SZrMB1"/>
+<span class="absolute top-3 right-3 bg-rust-accent/90 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">New</span>
+</div>
+<div class="p-4">
+<h4 class="font-headline-sm text-headline-sm text-deep-truffle mb-1">Truffle Benedict</h4>
+<div class="mt-4 flex justify-between items-center">
+<span class="font-label-price text-label-price text-deep-truffle">4,200 ₸</span>
+<button class="p-2 bg-paper-white rounded-full"><span class="material-symbols-outlined text-rust-accent">add</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MENU VIEW (SCREEN_11) -->
+<section class="view-section" id="view-menu">
+<div class="max-w-container-max mx-auto px-4 py-8 space-y-12">
+<!-- Breakfasts -->
+<section class="space-y-6" id="breakfasts">
+<div class="flex items-end justify-between border-b border-muted-border pb-2">
+<h2 class="font-headline-lg text-headline-lg text-deep-truffle">Breakfasts</h2>
+<span class="font-label-lg text-rust-accent mb-1 uppercase tracking-widest">Until 14:00</span>
+</div>
+<div class="group">
+<div class="relative aspect-[4/3] mb-4 overflow-hidden rounded-xl shadow-lg">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0oh_BzR4Ee_agSDifqVJFhzLcbZMB8bcNpE1DrYOjx-uq9BvsgETEJLVDjzDXw-9mXvdadcQ_fte-h9ldRDTyCJXNu6I_b60FE45wQ63vTX1COtzz01KoBw31hm5u5Pixno9cRdi8-Thw3Koi6V2mDbN9n9fzbGCobak76v3_yZzu6gBrtcOqcfDkjMUZwDkfwlbUBWUmNDfneC1tUcxB84e1ocbKWX2dfV3gu75cAAUTrQiXD32bYk_5oE6XUJhudLCjXjTvBv2r"/>
+<div class="absolute top-4 right-4">
+<span class="bg-rust-accent/90 text-white px-3 py-1 rounded-full font-label-lg text-xs backdrop-blur-sm">Chef's Choice</span>
+</div>
+</div>
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-headline-sm text-headline-sm text-deep-truffle">Signature Truffle Avocado Toast</h3>
+<span class="font-label-price text-label-price text-deep-truffle">4,500 ₸</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">Sourdough bread, creamy avocado mousse, poached eggs, fresh truffle shavings.</p>
+</div>
+</section>
+<!-- Eggs -->
+<section class="space-y-6" id="eggs">
+<div class="flex items-end border-b border-muted-border pb-2">
+<h2 class="font-headline-lg text-headline-lg text-deep-truffle">Eggs</h2>
+</div>
+<div class="flex gap-4 items-center bg-paper-white p-4 rounded-xl shadow-sm border border-muted-border/20">
+<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgVq4QRKKu2tHrBBlcdfPl7IDJ5AfAvVy37Wh3aWntisf0tA2p0uAhcHpWH_oDlFfOl0tR3oQQg5fHoDt_im6y4DSdDUNdGqleKD1_H-J7r2g4Y4AX4Fu7FR7jtDTr0cZgVp04mdWR5-PuNPUEi_Qm4YdklEPldYDs8i1vTkiSd0R46Z_U3bDbOB_VTSoNGUWmkk-PKd1c4klTd68czrS83_Mk3MjHluSIux7cCDUOHCK57m8xyVQfOubCd5b9E-wKJUi_55gj7WMw"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-headline-sm text-headline-sm text-deep-truffle">Benedict Royal</h3>
+<span class="font-label-price text-label-price text-deep-truffle">4,200 ₸</span>
+</div>
+<p class="text-on-surface-variant font-body-sm line-clamp-2">Smoked salmon, spinach, hollandaise sauce.</p>
+</div>
+</div>
+</section>
+<!-- Salads -->
+<section class="space-y-6" id="salads">
+<div class="flex items-end border-b border-muted-border pb-2">
+<h2 class="font-headline-lg text-headline-lg text-deep-truffle">Salads</h2>
+</div>
+<div class="group">
+<div class="relative aspect-[16/9] mb-4 overflow-hidden rounded-xl shadow-lg">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOyqBR22w12ak8rUVRBV8oFvXk_IM9zVE9SQmS_CHvfYGYvCZI_tIkRWYkAB4wMl9Fw3wx_EsjaO3vf3dzGW_yaai8-JT5x89JYWBPUEgJD55a9lczkUSonJEYnqNWDA77djEDVXlIYCPjlZhfTdyic0N4Wmit0-9WQIBL9Dd_bj9S-hT_wNNpyZ6_9cvZ055ThSsPhw3qjkkuXJ93fCDPOZeqpVdv9wfLwn0h8Sh-zNbHpa1mmlFqm7WkSoLI53e5MBZmMqDsjlR6"/>
+</div>
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-headline-sm text-headline-sm text-deep-truffle">Burrata &amp; Heirloom Tomato</h3>
+<span class="font-label-price text-label-price text-deep-truffle">5,200 ₸</span>
+</div>
+</div>
+</section>
+</div>
+</section>
+<!-- CONTACTS VIEW (SCREEN_2) -->
+<section class="view-section" id="view-contacts">
+<div class="px-gutter pt-8 pb-4">
+<h1 class="font-headline-lg text-headline-lg text-deep-truffle mb-2">Контакты</h1>
+<p class="text-on-surface-variant font-body-md">Будем рады видеть вас в нашем уютном уголке</p>
+</div>
+<div class="px-gutter mb-6">
+<div class="relative w-full h-[300px] rounded-xl overflow-hidden shadow-sm border border-muted-border/20">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBztYVh9vF4DszMT7PGoixoAxzPYJGJlJ5VJGOqhsdgWhYSWIxlDrel4F3tWrzyCZ5pk5BpM1yKZ0Ppi1YsHp8a-rbPisrTGZAe_5y33TUovTgKK6l3fvaPI9VJCri9nObSQEdTrdPDwl6Twbpqq_ry02eFDmMRUEJcFL5XO-dIkvHbYnqOYScs69nbWcVO0UPIeR_Lr8xDjo2q3kjRfhHf_gMCh7bmOMBDFYGnz0YZOHINW0Muitgpt28tm-sGoEeCPkdIbW4uThiV')"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<a class="flex items-center justify-center gap-3 bg-deep-truffle text-white py-4 px-6 rounded-lg shadow-lg active:scale-95 transition-transform font-label-lg w-full" href="https://2gis.kz">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+                            Открыть в 2GIS
+                        </a>
+</div>
+</div>
+</div>
+<div class="px-gutter grid grid-cols-1 gap-4 mb-12">
+<div class="bg-paper-white p-6 rounded-xl border border-muted-border/30 shadow-sm">
+<div class="flex items-start gap-4 mb-6">
+<div class="p-2 rounded-full bg-cream-bg text-rust-accent"><span class="material-symbols-outlined">storefront</span></div>
+<div>
+<div class="font-label-lg text-on-surface-variant mb-1 uppercase text-[10px]">Адрес</div>
+<div class="font-headline-sm text-headline-sm text-deep-truffle">Гашека 5/1</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-2 rounded-full bg-cream-bg text-rust-accent"><span class="material-symbols-outlined">schedule</span></div>
+<div>
+<div class="font-label-lg text-on-surface-variant mb-1 uppercase text-[10px]">Режим работы</div>
+<div class="font-headline-sm text-headline-sm text-deep-truffle">08:00 – 23:00</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<a class="flex flex-col items-center justify-center bg-paper-white p-6 rounded-xl border border-muted-border/30 shadow-sm active:scale-95 transition-transform" href="https://wa.me/7760360334">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-rust-accent/10 text-rust-accent mb-3"><span class="material-symbols-outlined">chat</span></div>
+<span class="font-label-lg text-deep-truffle">WhatsApp</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-paper-white p-6 rounded-xl border border-muted-border/30 shadow-sm active:scale-95 transition-transform" href="https://instagram.com">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-rust-accent/10 text-rust-accent mb-3"><span class="material-symbols-outlined">photo_camera</span></div>
+<span class="font-label-lg text-deep-truffle">Instagram</span>
+</a>
+</div>
+</div>
+<div class="mb-section-gap">
+<div class="px-gutter mb-6">
+<h2 class="font-headline-sm text-headline-sm text-deep-truffle mb-2 italic">Наш интерьер</h2>
+<div class="w-12 h-0.5 bg-rust-accent"></div>
+</div>
+<div class="flex overflow-x-auto gap-4 px-gutter pb-6 no-scrollbar snap-x">
+<div class="min-w-[280px] h-[360px] snap-center rounded-xl overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlIlqvem91ntx6IKajAv5m2KJoVa5wc1u65ujc1cIepLk6_jdQ-89QpKNWXozQOwet3vPbuMMrFCVPkPfKl9cuDvfavlv5wKy-VXXEd_V64Z9b5lSSTlN1ih86CsNItxWpUm4LWAciOsE8vQYmVaGlxUxajoyr1nT_ygD75CBcTJnWImRsCDsJqt_01Qm3oypBrPASLBn3P-5bWIxZT6Gc3K6BVYO4NSl6zp7NnjGSTomW8rMlrzQRCDCY0HY00UHhBVCFUezvN8kA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Common Footer -->
+<footer class="bg-surface-container py-12 px-gutter mt-16 border-t border-muted-border/20">
+<div class="max-w-container-max mx-auto text-center">
+<span class="font-headline-sm text-headline-sm text-deep-truffle block mb-6">Трюфель</span>
+<div class="flex flex-wrap justify-center gap-6 mb-8 text-on-surface-variant font-label-lg">
+<span>Гашека 5/1</span>
+<span>8:00 - 23:00</span>
+<a class="hover:text-rust-accent transition-colors" href="#">Instagram</a>
+</div>
+<p class="font-body-sm text-on-tertiary-fixed-variant opacity-60">
+                    © 2024 Гастрономия Трюфель. Все права защищены.
+                </p>
+</div>
+</footer>
+</main>
+<!-- Floating WhatsApp FAB (Global) -->
+<div class="fixed bottom-24 right-6 z-40">
+<a class="bg-rust-accent text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl active:scale-90 transition-transform" href="https://wa.me/7760360334">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</a>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-lg border-t border-muted-border/20 z-50 px-gutter py-2 flex justify-around items-center">
+<button class="flex flex-col items-center gap-1 p-2 text-rust-accent font-bold" id="nav-home" onclick="switchView('home')">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-label-lg">Главная</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 text-on-surface-variant" id="nav-menu" onclick="switchView('menu')">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-label-lg">Меню</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 text-on-surface-variant" id="nav-contacts" onclick="switchView('contacts')">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="text-[10px] font-label-lg">Контакты</span>
+</button>
+</div>
+<script>
+        function switchView(viewId) {
+            // Hide all views
+            document.querySelectorAll('.view-section').forEach(view => {
+                view.classList.remove('active');
+            });
+            
+            // Show target view
+            const targetView = document.getElementById('view-' + viewId);
+            if (targetView) {
+                targetView.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Toggle Header Menu Categories
+            const menuCats = document.getElementById('menu-categories');
+            if (viewId === 'menu') {
+                menuCats.classList.remove('hidden');
+            } else {
+                menuCats.classList.add('hidden');
+            }
+
+            // Update Nav Styles
+            updateNav(viewId);
+        }
+
+        function updateNav(activeId) {
+            const navIds = ['home', 'menu', 'contacts'];
+            navIds.forEach(id => {
+                const btn = document.getElementById('nav-' + id);
+                const icon = btn.querySelector('.material-symbols-outlined');
+                
+                if (id === activeId) {
+                    btn.classList.add('text-rust-accent', 'font-bold');
+                    btn.classList.remove('text-on-surface-variant');
+                    icon.style.fontVariationSettings = "'FILL' 1";
+                } else {
+                    btn.classList.remove('text-rust-accent', 'font-bold');
+                    btn.classList.add('text-on-surface-variant');
+                    icon.style.fontVariationSettings = "'FILL' 0";
+                }
+            });
+        }
+
+        // Initialize scroll animations or gallery dragging if needed
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize view state
+            switchView('home');
+        });
+    </script>
+</body></html>
